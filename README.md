@@ -166,7 +166,7 @@ php FooSpace/usingFooAndBar.php
 php usingFooAndBar.php
 ```
 
-##Stage 3; Autoloading:
+##Stage 3; Bespoke autoloading:
 
 An autoloader can be used to generate the file path for each namespace specified with 'use'.
 
@@ -182,6 +182,37 @@ function __autoload($class) {
   require_once($path);
 }
 
+
+$foo = new Foo();
+
+$foo->hello();
+$foo->showNamespace();
+
+
+$bar = new Bar();
+
+$bar->hello();
+$bar->showNamespace();
+```
+
+Run
+```
+php usingFooAndBar.php
+```
+
+##Stage 4; Using the built in autoloader
+
+There are built in autoloader functions in PHP, the most basic of which is spl_autoload. This takes a lowercase string of the namespace and classname, and requires the php file in the correct path. Magic!
+
+Adjust the usingFooAndBar.php file:
+```
+<?php
+
+use FooSpace\Foo as Foo;
+use BarSpace\Bar as Bar;
+
+spl_autoload('foospace\foo');
+spl_autoload('barspace\bar');
 
 $foo = new Foo();
 

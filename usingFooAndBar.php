@@ -1,13 +1,10 @@
 <?php
 
-use BarSpace\Bar;
-use FooSpace\Foo;
+use BarSpace\Bar as Bar;
+use FooSpace\Foo as Foo;
 
-function __autoload($class) {
-  $path = str_replace('\\', '/', $class) . '.php';
-  require_once($path);
-}
-
+spl_autoload('foospace\foo');
+spl_autoload('barspace\bar');
 
 $foo = new Foo();
 
