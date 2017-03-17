@@ -2,7 +2,7 @@
 
 Learning how to set up and use PHP namespaces.
 
-##Stage 1; basic set up and usage:
+## Stage 1 - basic set up and usage:
 
 Set up the following folder structure:
 
@@ -62,7 +62,7 @@ Run
 php FooSpace/usingFoo.php
 ```
 
-##Stage 2; Getting to understand namespace interactions:
+## Stage 2 - Getting to understand namespace interactions:
 
 Alter the folder structure as so:
 ```
@@ -166,7 +166,7 @@ php FooSpace/usingFooAndBar.php
 php usingFooAndBar.php
 ```
 
-##Stage 3; Bespoke autoloading:
+## Stage 3 - Bespoke autoloading:
 
 An autoloader can be used to generate the file path for each namespace specified with 'use'.
 
@@ -200,7 +200,7 @@ Run
 php usingFooAndBar.php
 ```
 
-##Stage 4; Using the built in autoloader
+## Stage 4 - Using the built in autoloader
 
 There are built in autoloader functions in PHP, the most basic of which is spl_autoload. This takes a lowercase string of the namespace and classname, and requires the php file in the correct path. Magic!
 
