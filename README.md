@@ -158,3 +158,44 @@ $bar = new Bar();
 $bar->hello();
 $bar->showNamespace();
 ```
+
+Run
+```
+php FooSpace/usingFoo.php
+php FooSpace/usingFooAndBar.php
+php usingFooAndBar.php
+```
+
+##Stage 3; Autoloading:
+
+An autoloader can be used to generate the file path for each namespace specified with 'use'.
+
+Adjust the usingFooAndBar.php file:
+```
+<?php
+
+use BarSpace\Bar;
+use FooSpace\Foo;
+
+function __autoload($class) {
+  $path = str_replace('\\', '/', $class) . '.php';
+  require_once($path);
+}
+
+
+$foo = new Foo();
+
+$foo->hello();
+$foo->showNamespace();
+
+
+$bar = new Bar();
+
+$bar->hello();
+$bar->showNamespace();
+```
+
+Run
+```
+php usingFooAndBar.php
+```
